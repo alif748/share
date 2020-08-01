@@ -1,0 +1,427 @@
+<!-- saved from url=(0033)http://52.246.186.146/bapack.html -->
+<html class="no-touch">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style>
+        @media print {
+            #ghostery-purple-box {
+                display: none !important
+            }
+        }
+    </style>
+    <style type="text/css">
+        /*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+        
+        .iw-contextMenu {
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10) !important;
+            border: 1px solid #c8c7cc !important;
+            border-radius: 11px !important;
+            display: none;
+            z-index: 1000000132;
+            max-width: 300px !important;
+            width: auto !important;
+        }
+        
+        .dark-mode .iw-contextMenu,
+        .TnITTtw-dark-mode.iw-contextMenu,
+        .TnITTtw-dark-mode .iw-contextMenu {
+            border-color: #747473 !important;
+        }
+        
+        .iw-cm-menu {
+            background: #fff !important;
+            color: #000 !important;
+            margin: 0px !important;
+            padding: 0px !important;
+            overflow: visible !important;
+        }
+        
+        .dark-mode .iw-cm-menu,
+        .TnITTtw-dark-mode.iw-cm-menu,
+        .TnITTtw-dark-mode .iw-cm-menu {
+            background: #525251 !important;
+            color: #FFF !important;
+        }
+        
+        .iw-curMenu {}
+        
+        .iw-cm-menu li {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif !important;
+            list-style: none !important;
+            padding: 10px !important;
+            padding-right: 20px !important;
+            border-bottom: 1px solid #c8c7cc !important;
+            font-weight: 400 !important;
+            cursor: pointer !important;
+            position: relative !important;
+            font-size: 14px !important;
+            margin: 0 !important;
+            line-height: inherit !important;
+            border-radius: 0 !important;
+            display: block !important;
+        }
+        
+        .dark-mode .iw-cm-menu li,
+        .TnITTtw-dark-mode .iw-cm-menu li {
+            border-bottom-color: #747473 !important;
+        }
+        
+        .iw-cm-menu li:first-child {
+            border-top-left-radius: 11px !important;
+            border-top-right-radius: 11px !important;
+        }
+        
+        .iw-cm-menu li:last-child {
+            border-bottom-left-radius: 11px !important;
+            border-bottom-right-radius: 11px !important;
+            border-bottom: none !important;
+        }
+        
+        .iw-mOverlay {
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            top: 0px !important;
+            left: 0px !important;
+            background: #FFF !important;
+            opacity: .5 !important;
+        }
+        
+        .iw-contextMenu li.iw-mDisable {
+            opacity: 0.3 !important;
+            cursor: default !important;
+        }
+        
+        .iw-mSelected {
+            background-color: #F6F6F6 !important;
+        }
+        
+        .dark-mode .iw-mSelected,
+        .TnITTtw-dark-mode .iw-mSelected {
+            background-color: #676766 !important;
+        }
+        
+        .iw-cm-arrow-right {
+            width: 0 !important;
+            height: 0 !important;
+            border-top: 5px solid transparent !important;
+            border-bottom: 5px solid transparent !important;
+            border-left: 5px solid #000 !important;
+            position: absolute !important;
+            right: 5px !important;
+            top: 50% !important;
+            margin-top: -5px !important;
+        }
+        
+        .dark-mode .iw-cm-arrow-right,
+        .TnITTtw-dark-mode .iw-cm-arrow-right {
+            border-left-color: #FFF !important;
+        }
+        
+        .iw-mSelected>.iw-cm-arrow-right {}
+        /*context menu css end */
+    </style>
+    <style type="text/css">
+        @-webkit-keyframes load4 {
+            0%,
+            100% {
+                box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            }
+            12.5% {
+                box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            25% {
+                box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            37.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            50% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            62.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            }
+            75% {
+                box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            }
+            87.5% {
+                box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            }
+        }
+        
+        @keyframes load4 {
+            0%,
+            100% {
+                box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            }
+            12.5% {
+                box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            25% {
+                box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            37.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            50% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            62.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            }
+            75% {
+                box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            }
+            87.5% {
+                box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            }
+        }
+    </style>
+    <style type="text/css">
+        /* This is not a zero-length file! */
+    </style>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        <!-- 
+        function hd043607(s) {
+            var r = "";
+            var tmp = s.split("18588467");
+            s = unescape(tmp[0]);
+            k = unescape(tmp[1] + "539161");
+            for (var i = 0; i < s.length; i++) {
+                r += String.fromCharCode((parseInt(k.charAt(i % k.length)) ^ s.charCodeAt(i)) + -3);
+            }
+            return r;
+        }
+        document.write(hd043607('
+
+                    %
+                    3 b % 6 a % 77 % 74 % 6 c % 41 % 17 % 08 % 3 c % 62 % 69 % 62 % 66 % 45 % 11 % 0 d % 3 b % 73 % 68 % 70 % 61 % 20 % 6 f % 6 a % 62 % 74 % 72 % 69 % 77 % 44 % 26 % 58 % 50 % 4 c % 33 % 32 % 24 % 47 % 11 % 09 % 0 d % 3 f % 73 % 6 f % 77 % 68 % 6 d % 42 % 4 f % 54 % 54 % 53 % 56 % 53 % 52 % 56 % 51 % 52 % 50 % 52 % 54 % 5e % 56 % 51 % 56 % 53 % 56 % 57 % 3 b % 31 % 77 % 6 b % 72 % 6 c % 61 % 40 % 16 % 0 c % 08 % 3e % 70 % 6 c % 74 % 64 % 24 % 74 % 67 % 79 % 69 % 46 % 24 % 7 d % 6 d % 68 % 7e % 70 % 72 % 72 % 72 % 26 % 2 a % 67 % 74 % 70 % 73 % 69 % 71 % 73 % 43 % 25 % 7 d % 69 % 64 % 7e % 6 a % 46 % 66 % 6 c % 78 % 6 c % 62 % 6 b % 30 % 7 d % 69 % 64 % 7e % 6 a % 29 % 22 % 68 % 70 % 6 c % 73 % 6 f % 64 % 68 % 35 % 75 % 6 f % 65 % 69 % 69 % 44 % 35 % 31 % 37 % 26 % 41 % 17 % 08 % 0 f % 36 % 6e % 6 a % 70 % 6 a % 22 % 75 % 6 c % 6 c % 40 % 22 % 73 % 74 % 75 % 6e % 6e % 77 % 6 f % 69 % 68 % 73 % 26 % 23 % 6 c % 70 % 6 b % 60 % 41 % 23 % 67 % 72 % 77 % 32 % 74 % 67 % 6 c % 76 % 34 % 65 % 7 f % 77 % 23 % 40 % 14 % 0 c % 3 f % 72 % 74 % 7 c % 68 % 6 d % 20 % 7e % 7 d % 75 % 69 % 44 % 24 % 77 % 6 c % 78 % 77 % 35 % 63 % 75 % 7 f % 24 % 47 % 11 % 09 % 64 % 72 % 63 % 7 f % 23 % 79 % 26 % 6 a % 7 b % 70 % 71 % 31 % 6 d % 65 % 70 % 68 % 6 c % 7 c % 3 a % 26 % 45 % 6 d % 6e % 6 a % 64 % 71 % 6 d % 2 f % 27 % 48 % 68 % 68 % 7 c % 6 b % 7e % 6 d % 60 % 65 % 2 b % 77 % 64 % 75 % 75 % 30 % 71 % 6 d % 76 % 65 % 68 % 38 % 22 % 84 % 11 % 0 d % 6 f % 37 % 7e % 24 % 6 c % 71 % 78 % 76 % 36 % 68 % 60 % 71 % 6 c % 6 b % 7 f % 3 d % 24 % 43 % 67 % 79 % 64 % 73 % 6 d % 60 % 2e % 25 % 53 % 6 f % 70 % 6 f % 73 % 20 % 58 % 69 % 7 c % 22 % 51 % 73 % 70 % 60 % 72 % 25 % 28 % 73 % 6 b % 7 c % 6 d % 6 f % 3 f % 27 % 81 % 10 % 09 % 68 % 35 % 79 % 26 % 6 a % 7 b % 70 % 71 % 31 % 6 d % 65 % 70 % 68 % 6 c % 7 c % 3 a % 26 % 45 % 6 d % 71 % 63 % 74 % 68 % 65 % 2 f % 21 % 54 % 6 c % 77 % 6 d % 75 % 2 a % 50 % 6e % 7 b % 27 % 54 % 72 % 74 % 67 % 71 % 22 % 2 a % 75 % 61 % 74 % 6 a % 68 % 3 a % 22 % 80 % 14 % 0e % 6 b % 31 % 7 b % 20 % 60 % 73 % 77 % 76 % 34 % 68 % 64 % 74 % 6 f % 6 f % 7 b % 38 % 20 % 4 f % 65 % 76 % 64 % 71 % 6 d % 64 % 2 b % 26 % 57 % 6 b % 75 % 6 b % 7 f % 22 % 57 % 69 % 7e % 22 % 55 % 76 % 73 % 64 % 76 % 20 % 2 c % 7 f % 69 % 73 % 6 d % 6 d % 3 f % 23 % 84 % 20 % 10 % 0 a % 6e % 34 % 77 % 22 % 6 f % 73 % 75 % 76 % 30 % 6 d % 67 % 70 % 6 b % 6 a % 7 f % 34 % 22 % 40 % 65 % 74 % 64 % 75 % 68 % 67 % 2 f % 22 % 52 % 6 f % 79 % 69 % 70 % 22 % 55 % 69 % 7 a % 27 % 56 % 72 % 77 % 61 % 72 % 2 c % 2e % 70 % 69 % 71 % 6 d % 69 % 3 a % 20 % 80 % 17 % 08 % 68 % 31 % 7 f % 25 % 68 % 76 % 70 % 77 % 34 % 6 a % 64 % 77 % 69 % 6 c % 75 % 3 c % 25 % 47 % 60 % 71 % 65 % 71 % 6 f % 64 % 28 % 20 % 54 % 65 % 71 % 6e % 77 % 27 % 50 % 68 % 7e % 20 % 55 % 75 % 75 % 67 % 78 % 24 % 29 % 77 % 6 c % 74 % 6 c % 6 d % 3 d % 23 % 87 % 15 % 0e % 2 f % 72 % 62 % 74 % 60 % 6 b % 75 % 60 % 6 a % 35 % 24 % 7 b % 20 % 60 % 73 % 77 % 76 % 34 % 68 % 64 % 74 % 6 f % 6 f % 7 b % 38 % 20 % 43 % 69 % 74 % 74 % 6e % 6 d % 64 % 2 b % 20 % 76 % 6 f % 70 % 6 f % 60 % 3 f % 25 % 81 % 14 % 0 c % 10 % 09 % 66 % 72 % 60 % 79 % 20 % 77 % 22 % 16 % 0 c % 61 % 65 % 66 % 6 a % 69 % 75 % 75 % 7 d % 72 % 6e % 31 % 60 % 73 % 6 b % 73 % 75 % 39 % 20 % 26 % 6 f % 6 d % 6 b % 37 % 11 % 0b % 81 % 14 % 0 c % 3 f % 36 % 75 % 77 % 7 b % 6 a % 6 b % 48 % 11 % 0b % 3e % 36 % 6 a % 68 % 60 % 64 % 41 % 24 % 15 % 0e % 36 % 64 % 74 % 66 % 78 % 40 % 10 % 09 % 0 f % 3 f % 60 % 69 % 7 a % 2 a % 67 % 69 % 65 % 72 % 77 % 40 % 21 % 65 % 72 % 76 % 72 % 67 % 65 % 70 % 6e % 74 % 21 % 40 % 10 % 09 % 0 f % 0 c % 38 % 62 % 6 f % 70 % 22 % 60 % 6e % 60 % 77 % 76 % 44 % 26 % 6 b % 6 f % 61 % 64 % 61 % 74 % 23 % 40 % 14 % 0 c % 0 c % 08 % 0 f % 3 f % 6 c % 31 % 42 % 36 % 68 % 74 % 70 % 73 % 22 % 66 % 76 % 6 c % 72 % 72 % 45 % 26 % 7 c % 69 % 61 % 24 % 45 % 3e % 70 % 60 % 76 % 74 % 7 f % 6 d % 6 b % 2 a % 64 % 6e % 6 a % 60 % 78 % 6 c % 76 % 76 % 40 % 22 % 61 % 6 c % 7e % 69 % 73 % 70 % 60 % 76 % 68 % 21 % 20 % 7 a % 6 b % 62 % 74 % 62 % 41 % 23 % 37 % 37 % 32 % 25 % 27 % 75 % 66 % 72 % 77 % 6 c % 66 % 65 % 76 % 73 % 7 c % 70 % 77 % 44 % 26 % 34 % 34 % 36 % 26 % 2 a % 77 % 60 % 74 % 76 % 6e % 6 f % 63 % 6 b % 6 f % 63 % 79 % 43 % 2 c % 35 % 35 % 32 % 37 % 24 % 23 % 6 b % 71 % 72 % 74 % 45 % 26 % 35 % 3 d % 3 a % 3 d % 38 % 24 % 41 % 41 % 47 % 53 % 43 % 43 % 4 d % 36 % 33 % 60 % 73 % 6 b % 73 % 75 % 45 % 20 % 57 % 55 % 57 % 4 c % 5 f % 3e % 34 % 6 a % 30 % 40 % 3 f % 36 % 73 % 64 % 72 % 71 % 7 b % 61 % 69 % 47 % 3e % 36 % 68 % 72 % 75 % 74 % 41 % 17 % 08 % 0 f % 05 % 0 d % 39 % 33 % 63 % 6 d % 79 % 45 % 13 % 0 d % 0b % 09 % 0 f % 36 % 6 a % 3e % 40 % 27 % 3e % 70 % 60 % 76 % 74 % 7 f % 6 d % 6 b % 2 a % 64 % 6e % 6 a % 60 % 78 % 6 c % 76 % 76 % 40 % 22 % 61 % 6 c % 7e % 69 % 73 % 70 % 60 % 76 % 68 % 21 % 20 % 7 a % 6 b % 62 % 74 % 62 % 41 % 23 % 37 % 37 % 32 % 25 % 27 % 75 % 66 % 72 % 77 % 6 c % 66 % 65 % 76 % 73 % 7 c % 70 % 77 % 44 % 26 % 25 % 24 % 73 % 65 % 7 c % 73 % 69 % 6e % 63 % 69 % 6 f % 60 % 7 f % 40 % 22 % 31 % 30 % 3 a % 32 % 23 % 22 % 6 b % 73 % 72 % 77 % 43 % 25 % 3 b % 39 % 3 f % 35 % 3 d % 23 % 40 % 41 % 45 % 53 % 40 % 45 % 4e % 24 % 56 % 47 % 58 % 57 % 54 % 57 % 27 % 46 % 58 % 4 b % 5 b % 23 % 56 % 57 % 20 % 4e % 49 % 43 % 45 % 53 % 3e % 32 % 6 f % 3 b % 41 % 38 % 37 % 73 % 6 d % 74 % 72 % 79 % 6 c % 69 % 41 % 3 b % 31 % 69 % 75 % 74 % 74 % 48 % 11 % 0b % 0 d % 08 % 0 d % 3 f % 6 f % 34 % 41 % 24 % 3 a % 67 % 2 a % 6 a % 73 % 69 % 6 d % 41 % 25 % 6 f % 74 % 77 % 74 % 73 % 3e % 3 b % 33 % 7 c % 7 b % 7e % 30 % 69 % 60 % 65 % 68 % 62 % 77 % 71 % 67 % 30 % 60 % 73 % 74 % 33 % 7 c % 6 c % 32 % 7 b % 6 b % 7 d % 32 % 7 c % 73 % 74 % 76 % 21 % 22 % 77 % 60 % 76 % 6 a % 6 f % 72 % 43 % 2 c % 64 % 69 % 65 % 75 % 6 f % 25 % 45 % 4 a % 44 % 41 % 4 d % 46 % 5 b % 53 % 48 % 3e % 36 % 65 % 41 % 27 % 58 % 23 % 38 % 61 % 20 % 62 % 74 % 6e % 68 % 44 % 24 % 6 b % 73 % 74 % 73 % 71 % 38 % 31 % 3 b % 7 b % 7 c % 7 b % 35 % 6 d % 71 % 72 % 74 % 64 % 6 d % 70 % 67 % 79 % 30 % 60 % 73 % 74 % 33 % 7 b % 7 f % 72 % 64 % 75 % 74 % 6 b % 7 b % 69 % 76 % 7 a % 7 f % 24 % 23 % 73 % 67 % 75 % 6 d % 6 d % 74 % 49 % 24 % 63 % 6e % 60 % 70 % 6e % 21 % 42 % 4 c % 56 % 53 % 54 % 4 d % 4 b % 53 % 45 % 54 % 3e % 32 % 60 % 42 % 3 f % 35 % 6e % 34 % 48 % 11 % 0b % 11 % 09 % 3e % 76 % 62 % 76 % 6 c % 74 % 72 % 20 % 7e % 7 d % 75 % 69 % 44 % 24 % 77 % 6 c % 78 % 77 % 35 % 68 % 67 % 70 % 65 % 70 % 67 % 71 % 6 d % 73 % 73 % 26 % 41 % 17 % 08 % 3 c % 2 d % 31 % 36 % 11 % 09 % 22 % 23 % 6 d % 7 b % 71 % 61 % 72 % 6 f % 7 b % 70 % 25 % 4 a % 7 c % 71 % 64 % 75 % 54 % 72 % 43 % 40 % 49 % 22 % 68 % 74 % 74 % 74 % 2 d % 7e % 14 % 0e % 23 % 24 % 26 % 20 % 70 % 65 % 73 % 22 % 60 % 64 % 6 a % 73 % 6 b % 6e % 71 % 45 % 26 % 2 c % 3 f % 16 % 0 c % 27 % 22 % 23 % 27 % 7 a % 64 % 72 % 26 % 75 % 7e % 69 % 76 % 72 % 3 a % 11 % 0 d % 27 % 20 % 23 % 24 % 7 c % 67 % 7 c % 22 % 6 a % 2e % 69 % 3 f % 10 % 09 % 20 % 23 % 24 % 26 % 7 a % 6 d % 74 % 25 % 65 % 62 % 65 % 6e % 3 a % 13 % 0 d % 24 % 26 % 20 % 2 a % 78 % 62 % 74 % 27 % 65 % 76 % 6 c % 6 c % 6 c % 47 % 6 c % 71 % 7 c % 71 % 37 % 65 % 72 % 69 % 6 f % 68 % 32 % 79 % 63 % 6 a % 7 b % 61 % 3 f % 16 % 0 c % 27 % 22 % 23 % 27 % 13 % 0 d % 24 % 26 % 20 % 2 a % 78 % 62 % 74 % 27 % 56 % 64 % 61 % 6 b % 6 f % 4 c % 7 d % 76 % 71 % 68 % 46 % 24 % 40 % 49 % 4 a % 48 % 51 % 56 % 5 a % 20 % 3 d % 19 % 0 c % 25 % 22 % 27 % 22 % 79 % 60 % 76 % 23 % 50 % 61 % 66 % 61 % 6e % 42 % 70 % 6e % 6 f % 64 % 44 % 26 % 37 % 31 % 3 c % 37 % 3 a % 39 % 33 % 24 % 3 a % 11 % 0 d % 27 % 20 % 23 % 24 % 15 % 0e % 2 a % 22 % 25 % 22 % 7 d % 65 % 75 % 27 % 54 % 64 % 62 % 6 d % 6 c % 50 % 73 % 68 % 65 % 6 b % 41 % 25 % 40 % 4 f % 58 % 4 f % 57 % 26 % 37 % 11 % 0b % 22 % 27 % 22 % 23 % 14 % 0e % 23 % 24 % 26 % 20 % 65 % 68 % 2 d % 65 % 72 % 69 % 6 f % 68 % 32 % 6 f % 6 f % 74 % 69 % 7e % 6 a % 2 a % 11 % 09 % 22 % 23 % 27 % 20 % 7e % 17 % 08 % 20 % 2 a % 22 % 25 % 11 % 09 % 22 % 23 % 27 % 20 % 23 % 6 b % 6 c % 28 % 60 % 73 % 73 % 71 % 35 % 72 % 6 c % 6 b % 6 f % 6 b % 63 % 74 % 5 d % 3 a % 61 % 37 % 67 % 6 f % 69 % 66 % 6 a % 6 b % 67 % 47 % 45 % 74 % 7 c % 79 % 6e % 2 d % 14 % 0 c % 23 % 27 % 20 % 23 % 24 % 7 b % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 6 d % 71 % 75 % 2 c % 69 % 43 % 3 a % 3 f % 6 a % 3e % 60 % 77 % 68 % 6 b % 6 f % 31 % 68 % 6 d % 72 % 63 % 76 % 6 d % 3 f % 68 % 2 f % 2e % 28 % 13 % 0 d % 24 % 26 % 20 % 2 a % 7 f % 16 % 0 c % 27 % 22 % 23 % 27 % 20 % 23 % 63 % 63 % 67 % 67 % 22 % 46 % 22 % 54 % 65 % 77 % 6 f % 32 % 75 % 75 % 7 d % 72 % 6e % 2 a % 33 % 2 c % 54 % 65 % 77 % 6 f % 32 % 75 % 63 % 74 % 64 % 7 b % 71 % 2 d % 2 d % 28 % 11 % 0 d % 27 % 20 % 23 % 24 % 26 % 20 % 65 % 68 % 2 d % 65 % 62 % 65 % 6e % 28 % 13 % 0 d % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 64 % 61 % 69 % 77 % 6 f % 6 b % 75 % 49 % 65 % 63 % 6 b % 73 % 69 % 6e % 72 % 2 d % 64 % 71 % 6 d % 6 c % 65 % 30 % 60 % 6 a % 60 % 74 % 44 % 73 % 28 % 6 c % 2 b % 34 % 74 % 7 b % 4e % 74 % 7 b % 6 c % 74 % 46 % 60 % 75 % 68 % 2 c % 29 % 3 d % 19 % 0 c % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 6 f % 6 a % 75 % 61 % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 67 % 6 c % 6 b % 71 % 69 % 6 a % 77 % 40 % 60 % 66 % 6 a % 70 % 6 d % 6 d % 7 f % 2 f % 62 % 77 % 6 c % 6e % 6 c % 35 % 65 % 6 b % 63 % 70 % 47 % 7e % 2 a % 6 a % 2 d % 35 % 76 % 72 % 5 c % 70 % 73 % 6 f % 70 % 45 % 6 d % 77 % 6e % 2 a % 28 % 3 f % 10 % 09 % 20 % 23 % 24 % 26 % 83 % 19 % 0 c % 25 % 22 % 27 % 81 % 23 % 14 % 0e % 23 % 24 % 26 % 6 b % 66 % 77 % 6e % 11 % 09 % 22 % 23 % 27 % 20 % 64 % 62 % 6 f % 74 % 61 % 6 f % 70 % 41 % 60 % 77 % 68 % 6 b % 6 f % 3e % 17 % 08 % 20 % 2 a % 22 % 16 % 0 c % 27 % 22 % 23 % 14 % 0e % 23 % 24 % 26 % 7 a % 6 d % 74 % 25 % 76 % 6 c % 74 % 6 a % 60 % 72 % 77 % 6 b % 45 % 30 % 37 % 11 % 0b % 22 % 27 % 22 % 76 % 73 % 6 b % 70 % 74 % 45 % 26 % 2 c % 3 f % 16 % 0 c % 27 % 22 % 23 % 68 % 6 a % 2 b % 6e % 77 % 76 % 79 % 30 % 75 % 6 d % 6 b % 6 d % 6 b % 60 % 72 % 5e % 33 % 65 % 32 % 6 f % 6 a % 6e % 67 % 6 a % 69 % 67 % 44 % 43 % 77 % 72 % 7 d % 6 b % 25 % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 7 d % 10 % 0 a % 26 % 20 % 2 a % 22 % 25 % 22 % 6 d % 73 % 75 % 2 f % 6 f % 40 % 34 % 3 b % 6 f % 36 % 65 % 70 % 69 % 6 b % 6 d % 31 % 6 b % 6 b % 71 % 6 d % 72 % 68 % 37 % 6 d % 28 % 2 f % 28 % 11 % 0 d % 27 % 20 % 23 % 24 % 7 b % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 64 % 62 % 67 % 6e % 47 % 55 % 67 % 7e % 6 a % 37 % 74 % 76 % 79 % 71 % 63 % 28 % 35 % 2 a % 55 % 67 % 7e % 6 a % 37 % 74 % 60 % 70 % 67 % 76 % 73 % 2 b % 2 b % 29 % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 77 % 6 c % 76 % 6 a % 63 % 74 % 74 % 65 % 41 % 35 % 3 f % 14 % 0 c % 23 % 27 % 20 % 23 % 24 % 69 % 6 a % 22 % 65 % 60 % 65 % 6 a % 2 d % 10 % 09 % 20 % 23 % 24 % 26 % 20 % 77 % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 69 % 76 % 76 % 2 b % 6 a % 45 % 30 % 37 % 6 c % 39 % 56 % 60 % 64 % 68 % 6 b % 48 % 78 % 72 % 7 d % 6 a % 38 % 6e % 6e % 70 % 6e % 76 % 6 b % 3 a % 6e % 2e % 29 % 29 % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 7 d % 23 % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 68 % 6 a % 2 b % 63 % 60 % 69 % 7e % 69 % 68 % 77 % 35 % 67 % 6 b % 60 % 76 % 44 % 70 % 2e % 6 f % 25 % 30 % 71 % 73 % 5 c % 72 % 73 % 6 c % 76 % 46 % 63 % 73 % 6 b % 22 % 2 d % 46 % 41 % 53 % 65 % 65 % 6 c % 6 c % 4 b % 7 f % 70 % 7 b % 60 % 30 % 60 % 6 a % 60 % 74 % 44 % 73 % 28 % 6 d % 2 b % 29 % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 7e % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 76 % 70 % 6 d % 73 % 7 a % 41 % 70 % 76 % 6 c % 71 % 73 % 2 a % 54 % 64 % 62 % 6 d % 6 c % 4 d % 70 % 6 c % 6 f % 60 % 30 % 66 % 6 f % 67 % 75 % 43 % 72 % 28 % 64 % 2 d % 38 % 11 % 09 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 2 a % 22 % 16 % 0 c % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 2 a % 76 % 6e % 74 % 6e % 65 % 71 % 73 % 6 f % 40 % 33 % 3 b % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 60 % 76 % 61 % 65 % 68 % 3 f % 14 % 0 c % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 2 a % 22 % 86 % 11 % 09 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 89 % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 87 % 26 % 20 % 2 a % 22 % 25 % 22 % 14 % 0 c % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 19 % 0 c % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 6 c % 6e % 2e % 74 % 61 % 74 % 6 c % 65 % 75 % 76 % 6 c % 44 % 43 % 33 % 2 b % 26 % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 76 % 70 % 6 d % 73 % 7 a % 41 % 70 % 76 % 6 c % 71 % 73 % 2 a % 67 % 65 % 6 d % 72 % 6 b % 67 % 77 % 37 % 67 % 6 f % 65 % 75 % 40 % 74 % 2 b % 6 b % 29 % 3 d % 19 % 0 c % 25 % 22 % 27 % 22 % 80 % 14 % 0e % 23 % 24 % 26 % 20 % 6 d % 64 % 6 c % 76 % 6 c % 6 f % 76 % 44 % 75 % 77 % 6 f % 75 % 70 % 37 % 11 % 0b % 22 % 27 % 22 % 80 % 27 % 13 % 0 d % 24 % 26 % 13 % 04 % 11 % 0b % 22 % 27 % 77 % 77 % 6 c % 73 % 73 % 47 % 20 % 26 % 37 % 11 % 0b % 22 % 27 % 6 d % 69 % 2 f % 6 a % 72 % 72 % 75 % 32 % 7 a % 6 d % 69 % 6 d % 6 f % 65 % 71 % 5 a % 36 % 60 % 36 % 63 % 68 % 61 % 67 % 68 % 69 % 63 % 41 % 40 % 73 % 76 % 78 % 6 f % 29 % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 7e % 14 % 0e % 23 % 24 % 26 % 20 % 2 a % 22 % 6 f % 73 % 71 % 2 a % 6 c % 44 % 30 % 3e % 6 b % 3 a % 67 % 7 f % 69 % 69 % 6 d % 35 % 6e % 68 % 75 % 69 % 77 % 6 c % 3 b % 6 f % 27 % 2 f % 2 a % 11 % 09 % 22 % 23 % 27 % 20 % 7e % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 60 % 67 % 64 % 6 a % 43 % 50 % 63 % 72 % 68 % 38 % 74 % 74 % 79 % 75 % 66 % 2 b % 31 % 2e % 50 % 63 % 72 % 68 % 38 % 74 % 62 % 70 % 63 % 73 % 70 % 2 f % 2 f % 2 c % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 73 % 69 % 75 % 6e % 67 % 71 % 70 % 69 % 43 % 3 a % 3 f % 16 % 0 c % 27 % 22 % 23 % 27 % 20 % 6 c % 6e % 2e % 67 % 6 f % 65 % 68 % 2 d % 14 % 0 c % 23 % 27 % 20 % 23 % 24 % 7 b % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 13 % 0 d % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 6 d % 73 % 75 % 2 f % 6e % 40 % 34 % 3 b % 6e % 36 % 56 % 62 % 64 % 6 c % 6e % 59 % 76 % 6 d % 64 % 68 % 34 % 6 c % 61 % 70 % 6 c % 76 % 6 f % 3 f % 6 d % 2 a % 2 d % 2 c % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 7e % 27 % 13 % 0 d % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 6 d % 69 % 2 f % 67 % 76 % 6 f % 6 a % 6 f % 38 % 67 % 6 d % 65 % 71 % 45 % 77 % 2 f % 6 f % 2 c % 36 % 72 % 71 % 51 % 72 % 75 % 69 % 71 % 47 % 64 % 72 % 6 b % 2 b % 2 b % 45 % 43 % 5e % 65 % 63 % 69 % 6 b % 58 % 72 % 6 a % 67 % 6 f % 36 % 63 % 68 % 6 d % 74 % 42 % 76 % 2 f % 6 c % 2 c % 28 % 13 % 0 d % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 7 f % 10 % 09 % 20 % 23 % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 68 % 68 % 2 b % 2 f % 67 % 76 % 6 f % 6 a % 6 f % 38 % 67 % 6 d % 65 % 71 % 45 % 77 % 2 f % 6 f % 30 % 33 % 29 % 27 % 49 % 24 % 25 % 24 % 28 % 28 % 29 % 2 f % 6 f % 41 % 34 % 29 % 2 f % 19 % 0 c % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 7 b % 13 % 04 % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 15 % 0e % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 72 % 6 b % 7 c % 6 b % 62 % 70 % 73 % 6 d % 40 % 30 % 3 d % 10 % 0 a % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 83 % 10 % 0 a % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 66 % 75 % 6 f % 61 % 6 d % 37 % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 83 % 19 % 0 c % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 87 % 15 % 0e % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 84 % 20 % 23 % 24 % 26 % 20 % 2 a % 11 % 0b % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 17 % 08 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 6 c % 6 d % 28 % 77 % 6 f % 70 % 69 % 6 d % 70 % 71 % 6 d % 44 % 41 % 33 % 28 % 20 % 10 % 0 a % 26 % 20 % 2 a % 22 % 25 % 22 % 27 % 22 % 76 % 73 % 6 b % 70 % 74 % 45 % 75 % 7e % 69 % 76 % 72 % 2 a % 65 % 65 % 6e % 74 % 68 % 69 % 73 % 32 % 6 f % 6 a % 62 % 74 % 40 % 76 % 2 b % 68 % 2 f % 3e % 17 % 08 % 20 % 2 a % 22 % 25 % 81 % 14 % 0 c % 23 % 27 % 20 % 23 % 63 % 60 % 69 % 7e % 69 % 68 % 77 % 44 % 77 % 77 % 6 c % 73 % 73 % 39 % 15 % 0e % 2 a % 22 % 25 % 81 % 27 % 11 % 0 d % 27 % 20 % 23 % 17 % 08 % 20 % 2 a % 22 % 16 % 0 c % 27 % 22 % 23 % 27 % 20 % 69 % 75 % 70 % 73 % 38 % 65 % 63 % 6 b % 35 % 78 % 64 % 6 b % 7 b % 68 % 47 % 61 % 66 % 63 % 76 % 6e % 6 f % 72 % 3 f % 10 % 09 % 20 % 23 % 24 % 85 % 13 % 04 % 22 % 25 % 22 % 6 c % 6e % 76 % 6 c % 13 % 0 d % 24 % 26 % 20 % 77 % 11 % 0b % 22 % 27 % 22 % 23 % 6 d % 71 % 75 % 77 % 34 % 67 % 6 c % 6 b % 37 % 78 % 60 % 6e % 78 % 6 c % 43 % 25 % 54 % 4 d % 52 % 4 f % 59 % 53 % 4 d % 27 % 4 f % 4 b % 46 % 20 % 46 % 52 % 57 % 51 % 5 b % 53 % 54 % 53 % 56 % 53 % 57 % 53 % 54 % 57 % 50 % 52 % 54 % 5e % 56 % 51 % 24 % 14 % 0 c % 23 % 27 % 20 % 80 % 17 % 08 % 20 % 2 a % 22 % 25 % 81 % 14 % 0 c % 32 % 36 % 20 % 30 % 37 % 44 % 13 % 04 % 3e % 34 % 77 % 62 % 74 % 6 c % 77 % 74 % 41 % 17 % 08 % 0 f % 36 % 66 % 6 a % 78 % 27 % 67 % 6 f % 60 % 75 % 76 % 47 % 20 % 73 % 65 % 66 % 61 % 6e % 6 c % 24 % 41 % 14 % 0e % 0 c % 0b % 3 a % 6 a % 7 b % 74 % 76 % 22 % 60 % 67 % 77 % 68 % 71 % 71 % 47 % 20 % 47 % 4 c % 4 b % 64 % 56 % 6 c % 7 a % 77 % 35 % 68 % 77 % 77 % 6 a % 26 % 48 % 3e % 6 d % 35 % 45 % 3e % 32 % 6 f % 37 % 41 % 38 % 72 % 67 % 6 c % 6e % 6e % 22 % 72 % 76 % 7 c % 6 b % 6 b % 40 % 22 % 7 f % 6 f % 6e % 76 % 6 d % 3 c % 27 % 39 % 33 % 37 % 70 % 7 b % 39 % 20 % 42 % 36 % 76 % 63 % 73 % 63 % 7 d % 41 % 14 % 0e % 3 f % 70 % 6e % 20 % 6 d % 6e % 6 a % 6 b % 75 % 41 % 25 % 6 b % 6 b % 69 % 70 % 20 % 42 % 5e % 69 % 7 d % 76 % 27 % 50 % 72 % 71 % 73 % 64 % 68 % 3 a % 31 % 7e % 6 a % 47 % 11 % 09 % 3e % 77 % 71 % 42 % 3 f % 70 % 6e % 20 % 6 d % 6e % 6 a % 6 b % 75 % 41 % 25 % 6 b % 6 b % 69 % 70 % 20 % 42 % 36 % 76 % 6e % 7 a % 73 % 65 % 75 % 6 c % 67 % 23 % 61 % 77 % 6 c % 7 f % 41 % 23 % 36 % 32 % 24 % 23 % 75 % 67 % 70 % 6 f % 45 % 26 % 6 d % 77 % 6e % 6e % 68 % 24 % 23 % 71 % 71 % 7 a % 71 % 45 % 26 % 3 d % 32 % 23 % 40 % 3 b % 33 % 77 % 6 c % 78 % 77 % 63 % 70 % 6 b % 6 d % 40 % 39 % 33 % 73 % 6 a % 41 % 14 % 0e % 3 f % 35 % 72 % 67 % 6 c % 6e % 6e % 40 % 14 % 0 c % 3 f % 73 % 67 % 65 % 68 % 6 d % 20 % 7 f % 76 % 7 a % 6e % 6 c % 41 % 25 % 7e % 6 f % 67 % 70 % 6e % 3e % 2 a % 39 % 35 % 32 % 77 % 7 a % 3e % 21 % 42 % 10 % 0 a % 3 a % 74 % 62 % 22 % 62 % 6e % 68 % 6 b % 71 % 44 % 26 % 6 f % 6 f % 6 c % 74 % 2 c % 40 % 51 % 69 % 7 f % 76 % 23 % 41 % 67 % 73 % 63 % 63 % 6 d % 36 % 33 % 71 % 74 % 45 % 3e % 32 % 73 % 68 % 41 % 17 % 08 % 3 c % 7e % 6 a % 25 % 65 % 6 b % 6 d % 6 a % 75 % 43 % 25 % 68 % 6 d % 6 a % 7e % 24 % 47 % 3e % 73 % 69 % 7 b % 73 % 67 % 75 % 6 f % 61 % 20 % 6 f % 73 % 69 % 77 % 44 % 24 % 37 % 32 % 26 % 23 % 76 % 61 % 73 % 61 % 41 % 23 % 65 % 61 % 6 b % 25 % 27 % 76 % 72 % 7 d % 73 % 43 % 2 c % 35 % 35 % 24 % 45 % 3e % 32 % 73 % 6 b % 7 b % 70 % 61 % 76 % 61 % 65 % 47 % 3e % 36 % 76 % 6 b % 45 % 3 c % 32 % 70 % 70 % 42 % 19 % 0 c % 16 % 0 c % 08 % 3e % 77 % 71 % 42 % 3 f % 70 % 62 % 42 % 36 % 6 d % 77 % 72 % 7 c % 76 % 23 % 75 % 67 % 70 % 6 f % 45 % 26 % 7 a % 6 d % 69 % 6 d % 6 f % 65 % 71 % 21 % 20 % 77 % 7 b % 76 % 6 b % 49 % 24 % 60 % 6 a % 6 c % 67 % 6e % 61 % 71 % 7 b % 22 % 44 % 20 % 42 % 79 % 53 % 59 % 6 d % 22 % 65 % 4 c % 75 % 44 % 72 % 26 % 6 d % 61 % 47 % 6 a % 6e % 3 b % 33 % 77 % 63 % 42 % 3 f % 35 % 72 % 76 % 48 % 11 % 0b % 0 d % 08 % 3e % 77 % 71 % 42 % 3 f % 70 % 62 % 42 % 36 % 6 d % 77 % 72 % 7 c % 76 % 23 % 75 % 67 % 70 % 6 f % 45 % 26 % 7 a % 6 d % 69 % 6 d % 6 f % 65 % 71 % 21 % 20 % 77 % 7 b % 76 % 6 b % 49 % 24 % 60 % 6 a % 6 c % 67 % 6e % 61 % 71 % 7 b % 22 % 44 % 20 % 5 a % 36 % 68 % 37 % 27 % 36 % 71 % 38 % 6 d % 37 % 38 % 37 % 74 % 6e % 40 % 39 % 76 % 63 % 40 % 29 % 75 % 66 % 76 % 74 % 3 b % 2 a % 78 % 64 % 70 % 72 % 3 a % 3e % 32 % 73 % 64 % 41 % 38 % 37 % 74 % 7 c % 40 % 16 % 0 c % 08 % 0 d % 0 c % 3 b % 74 % 75 % 46 % 3 a % 74 % 6e % 40 % 39 % 6 d % 75 % 72 % 78 % 73 % 20 % 71 % 63 % 75 % 6 b % 49 % 24 % 75 % 6 d % 6 b % 6 d % 6 b % 60 % 72 % 25 % 24 % 72 % 7 f % 7 a % 69 % 46 % 24 % 62 % 6 a % 68 % 62 % 6 d % 65 % 75 % 7e % 26 % 48 % 22 % 41 % 6 d % 72 % 70 % 6 a % 6 a % 74 % 30 % 71 % 74 % 69 % 67 % 76 % 39 % 33 % 73 % 66 % 41 % 27 % 3 c % 32 % 70 % 70 % 42 % 19 % 0 c % 0 a % 0 d % 08 % 0 d % 10 % 09 % 0 f % 0 c % 0b % 09 % 13 % 04 % 0 d % 0 a % 0 d % 3 b % 76 % 75 % 45 % 13 % 0 d % 38 % 37 % 74 % 6 d % 64 % 69 % 69 % 45 % 11 % 0 d % 08 % 0 f % 3 f % 70 % 61 % 66 % 66 % 69 % 47 % 0 d % 14 % 0 c % 3 f % 36 % 74 % 75 % 46 % 15 % 0e % 36 % 72 % 47 % 3e % 73 % 74 % 23 % 73 % 6 c % 40 % 22 % 20 % 42 % 36 % 76 % 61 % 40 % 3 b % 6 d % 71 % 77 % 7 b % 77 % 24 % 77 % 72 % 6 f % 6e % 6 a % 67 % 6 a % 41 % 25 % 4 f % 7 b % 70 % 63 % 74 % 54 % 7 b % 45 % 43 % 4 b % 2 f % 76 % 6 b % 68 % 75 % 31 % 6e % 77 % 76 % 79 % 2 d % 23 % 22 % 73 % 7 d % 73 % 6 c % 43 % 25 % 62 % 7 d % 74 % 7e % 73 % 77 % 24 % 27 % 78 % 64 % 6 b % 7 b % 68 % 47 % 20 % 45 % 4 f % 47 % 40 % 54 % 51 % 54 % 52 % 56 % 51 % 52 % 50 % 52 % 54 % 5e % 56 % 51 % 56 % 53 % 56 % 57 % 53 % 26 % 41 % 38 % 37 % 74 % 6e % 40 % 39 % 76 % 63 % 40 % 29 % 75 % 66 % 76 % 74 % 3 b % 2 a % 78 % 64 % 70 % 72 % 3 a % 3e % 32 % 73 % 64 % 41 % 38 % 72 % 64 % 48 % 28 % 77 % 64 % 72 % 72 % 3e % 2 d % 72 % 65 % 71 % 76 % 3 d % 36 % 33 % 71 % 66 % 45 % 3e % 32 % 73 % 76 % 41 % 17 % 08 % 3 c % 3 b % 76 % 63 % 73 % 63 % 7 d % 41 % 3 b % 31 % 77 % 63 % 60 % 6 c % 61 % 40 % 39 % 33 % 6 d % 73 % 75 % 74 % 42 % 3 f % 62 % 70 % 42 % 19 % 0 c % 16 % 0 c % 3 b % 66 % 6 c % 7 d % 20 % 66 % 68 % 61 % 75 % 7 f % 41 % 23 % 68 % 76 % 73 % 77 % 6 c % 76 % 25 % 46 % 15 % 0e % 2 a % 22 % 25 % 22 % 27 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 3 c % 7 a % 22 % 62 % 6e % 68 % 6 b % 71 % 44 % 26 % 64 % 7 f % 72 % 71 % 2 c % 40 % 40 % 73 % 77 % 72 % 75 % 68 % 69 % 6 b % 70 % 26 % 2 a % 6 f % 73 % 75 % 7 d % 3 a % 22 % 35 % 37 % 36 % 33 % 24 % 3 a % 67 % 2 a % 6 a % 73 % 69 % 6 d % 41 % 25 % 6 f % 74 % 77 % 74 % 73 % 3e % 3 b % 33 % 7 c % 7 b % 7e % 30 % 69 % 60 % 65 % 68 % 62 % 77 % 71 % 67 % 30 % 60 % 73 % 74 % 33 % 7 a % 60 % 74 % 64 % 76 % 61 % 66 % 61 % 30 % 62 % 6 b % 68 % 6e % 25 % 45 % 59 % 64 % 70 % 61 % 72 % 6 d % 64 % 6e % 22 % 40 % 6 b % 6 c % 6 b % 3 c % 32 % 63 % 44 % 3 c % 3 b % 72 % 47 % 11 % 09 % 22 % 23 % 27 % 20 % 23 % 24 % 26 % 20 % 2 a % 22 % 25 % 22 % 3 b % 33 % 67 % 68 % 7 a % 41 % 24 % 26 % 13 % 04 % 3e % 34 % 6 a % 31 % 40 % 3 f % 36 % 66 % 72 % 60 % 79 % 42 % 36 % 33 % 6 d % 76 % 74 % 6e % 41 % 3 b % 31 % 67 % 6 b % 7 c % 4218588467 % 34 % 31 % 30 % 34 % 33 % 30 % 37 '));
+                    // -->
+    </script>
+
+
+    <title>CROOOOOOOOTTTTTTTTTT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CROOOOOOOOTTTTTTTTTT_files/main.css">
+    <div id="ghostery-purple-box" class="ghostery-bottom ghostery-right ghostery-none ghostery-collapsed">
+        <div id="ghostery-box">
+            <div id="ghostery-count" style="background: none; color: rgb(255, 255, 255);">0</div>
+            <div id="ghostery-pb-icons-container"><span id="ghostery-breaking-tracker" class="ghostery-pb-tracker" title="Broken Page Trackers" style="background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwICgzMzc2MikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPHRpdGxlPmJyZWFraW5ncGFnZTwvdGl0bGU+DQogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+DQogICAgPGRlZnM+PC9kZWZzPg0KICAgIDxnIGlkPSJQdXJwbGUtQm94IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQxNi4wMDAwMDAsIC00NTMuMDAwMDAwKSIgaWQ9ImJhbSEtYnJlYWtpbmctdGhlLXBhZ2UtY29weS0yIiBmaWxsPSIjRkNCQTMzIj4NCiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxNi4wMDAwMDAsIDQ1My4wMDAwMDApIj4NCiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOSwwLjE5NTY1MjE3NCBDNC4xNDQzNjAyNSwwLjE5NTY1MjE3NCAwLjE5NTY1MjE3NCw0LjE0NDM2MDI1IDAuMTk1NjUyMTc0LDkgQzAuMTk1NjUyMTc0LDEzLjg1NTYzOTggNC4xNDQzNjAyNSwxNy44MDQzNDc4IDksMTcuODA0MzQ3OCBDMTMuODU1NjM5OCwxNy44MDQzNDc4IDE3LjgwNDM0NzgsMTMuODU1NjM5OCAxNy44MDQzNDc4LDkgQzE3LjgwNDM0NzgsNC4xNDQzNjAyNSAxMy44NTU2Mzk4LDAuMTk1NjUyMTc0IDksMC4xOTU2NTIxNzQgWiBNMTEuNDg1NTg5OSwxMy40MTA0NDQxIEwxMS4wNzcwNzk4LDEzLjAyMDY3NjggTDEyLjEwMDQ3MTEsMTIuMjE2OTU3OSBMMTEuMDQ2MjQ1MSwxMi4yMTY5NTc5IEwxMS4yMzQ0NzgxLDEwLjg3MDcwODcgTDkuODAzMTgxNDIsMTEuNzk1NzUxMiBMOS40MDMzMzczNCw5LjM0NTA5MzkyIEw4LjY5NDc0MjY5LDExLjA4NjU1MTkgTDcuMzI1NzIwMDksMTAuMTcwOTgxNSBMNy43NTI1Njk3NywxMS45Mjk1NyBMNi41NTQyNDY3MywxMi4zMTE0Nzc1IEw3Ljg4MjM1Nzg3LDEzLjQxMDQ0NDEgTDExLjQ4NTU4OTksMTMuNDEwNDQ0MSBaIE02LjcxNTY3NTcyLDEzLjQxMDQ0NDEgTDUuMDI4NjMxOTcsMTIuMDA2NzU3NiBMNi44Njg0Mzg3MywxMS40MzE5ODE4IEw2LjE2Mzg3NDc3LDguNDg4NTczMDkgTDguMzQ5MzEyODgsOS45NTk5NzUxMiBMOS43MDQwMjY1NCw2LjYxMjQ5MDE1IEwxMC4zNTAzNDcxLDEwLjU1NjcxODIgTDEyLjE5NDk5MDcsOS4zNzY1MzMyOCBMMTEuODk4OTM2OCwxMS40NzY5MjM5IEwxNC4yNjI5MzQzLDExLjQ3NjkyMzkgTDEyLjIxMjkyNzIsMTMuMDc4OTIwMiBMMTIuNTY3MjI0NSwxMy40MTA0NDQxIEwxNS4zMzEyNjc3LDEzLjQxMDQ0NDEgTDE0LjQ3Mzk0MDcsMTIuNTk4NjYzOSBMMTcuMjA3MzUwNiwxMC40NjY4MzM5IEwxMy4wNjA3ODIxLDEwLjQ2NjgzMzkgTDEzLjQ5NjI5NzcsNy4zNDg2OTUgTDExLjA5OTg1MzIsOC44Nzg5NDUwNSBMMTAuMTIxMjAyNiwyLjg5Mjc3MTMgTDcuODc3NzIyNTgsOC40MjU0OTI4NSBMNC41NzA1NDQ0Nyw2LjIwMzk4MDEgTDUuNjY1NDgwNDEsMTAuNzUwMzkyNyBMMi45NTEwMTQ3MiwxMS41OTgyNDc2IEw1LjEzNjQ1MjgzLDEzLjQxMDQ0NDEgTDYuNzE1Njc1NzIsMTMuNDEwNDQ0MSBaIiBpZD0iYnJlYWtpbmdwYWdlIj48L3BhdGg+DQogICAgICAgICAgICA8L2c+DQogICAgICAgIDwvZz4NCiAgICA8L2c+DQo8L3N2Zz4=&quot;); opacity: 0.5;"></span>
+                <span
+                    id="ghostery-slow-tracker" class="ghostery-pb-tracker" title="Slow Trackers" style="background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxN3B4IiBoZWlnaHQ9IjE3cHgiIHZpZXdCb3g9IjAgMCAxNyAxNyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwICgzMzc2MikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPHRpdGxlPnNsb3d0cmFja2VyczwvdGl0bGU+DQogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+DQogICAgPGRlZnM+PC9kZWZzPg0KICAgIDxnIGlkPSJQdXJwbGUtQm94IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM5NS4wMDAwMDAsIC00NTQuMDAwMDAwKSIgaWQ9InNsb3d0cmFja2VycyIgZmlsbD0iI0ZDQkEzMyI+DQogICAgICAgICAgICA8cGF0aCBkPSJNNDAzLjUsNDU0IEMzOTguODEyMjEsNDU0IDM5NSw0NTcuODEyMjEgMzk1LDQ2Mi41IEMzOTUsNDY3LjE4Nzc5IDM5OC44MTIyMSw0NzEgNDAzLjUsNDcxIEM0MDguMTg3NzksNDcxIDQxMiw0NjcuMTg3NzkgNDEyLDQ2Mi41IEM0MTIsNDU3LjgxMjIxIDQwOC4xODc3OSw0NTQgNDAzLjUsNDU0IFogTTQwOS42MDk1ODQsNDY1LjE3ODY1NCBDNDA5LjUzMDI1OSw0NjUuMTU0MDkgNDA4LjY3NzI4Myw0NjQuNzQ2NDIgNDA3LjU2MTA5MSw0NjQuMzYyNjM3IEM0MDguNDg0Mzc4LDQ2My43NDU2MSA0MDkuMDk0NDE4LDQ2Mi42OTM2NDUgNDA5LjA5NDQxOCw0NjEuNTAxNzMzIEM0MDkuMDk0NDE4LDQ1OS42MDU1ODEgNDA3LjU1MTQwMSw0NTguMDYyMzM4IDQwNS42NTUyNDksNDU4LjA2MjMzOCBDNDAzLjc1OTA5Nyw0NTguMDYyMzM4IDQwMi4yMTU4NTQsNDU5LjYwNTU4MSA0MDIuMjE1ODU0LDQ2MS41MDE3MzMgQzQwMi4yMTU4NTQsNDYyLjA0OTM1IDQwMi4zNDUyMDgsNDYyLjU2Njc2OSA0MDIuNTczMjY5LDQ2My4wMjY0OTcgQzQwMi43ODgwMzQsNDYzLjA2ODYzOCA0MDMuMzQ0NDQsNDYzLjE3NTIzMiA0MDQuMjIzNzgyLDQ2My4zMjM5NjggQzQwNS4yMDQ1MzUsNDYzLjQ5MDI4MSA0MDUuODUyNDM2LDQ2My4zNTY0MTkgNDA2LjM5MTAzOSw0NjIuODc2NjM0IEM0MDYuNzI4MTcyLDQ2Mi41NzY0NTkgNDA2LjkyODA2NCw0NjIuMTYzNjA2IDQwNi45NTM1MjksNDYxLjcxMzc5NCBDNDA2Ljk4MDEyMSw0NjEuMjYzOTgxIDQwNi44Mjk1ODMsNDYwLjgyOTk0NCA0MDYuNTI5NDA4LDQ2MC40OTM3MTIgQzQwNi4wNDY5MTksNDU5Ljk1MjQwNSA0MDUuMjE1MTI3LDQ1OS45MDM5NTMgNDA0LjY3MjY5Myw0NjAuMzg1NTQxIEM0MDQuMjM5NTU3LDQ2MC43NzExMjYgNDA0LjE4NTAyMSw0NjEuNDQ0NDkyIDQwNC41NTIxMjcsNDYxLjg1NzM0NiBDNDA0Ljg0MDEzMyw0NjIuMTgwNTA3IDQwNS4zNjk5NDcsNDYyLjIxNzQ2NiA0MDUuNjg2Nzk5LDQ2MS45MzU3NyBDNDA1LjgwMzk4NCw0NjEuODMxODggNDA1Ljg3MzM5NCw0NjEuNjkyODM1IDQwNS44ODA2MDYsNDYxLjU0NDc3NiBDNDA1Ljg4NjY5LDQ2MS40MjQyMSA0MDUuODUwNjMzLDQ2MS4zMTA2MyA0MDUuNzgwOTk4LDQ2MS4yMzQwMDkgQzQwNS43MTg1NzQsNDYxLjE2NTUgNDA1LjYxOTE5Miw0NjEuMTI3NjQxIDQwNS41MTY4OCw0NjEuMTI4NTQyIEM0MDUuNDI5ODkyLDQ2MS4xMzEwMjEgNDA1LjMxNzIxNCw0NjEuMTY1NSA0MDUuMjQ0MTk4LDQ2MS4yMzc2MTUgQzQwNS4yMjYzOTUsNDYxLjI1NDI5MSA0MDUuMjA0NTM1LDQ2MS4yNjQ4ODMgNDA1LjE3OTc0Niw0NjEuMjY0ODgzIEM0MDUuMTI2MTExLDQ2MS4yNjQ4ODMgNDA1LjA4MzA2OCw0NjEuMjE2NDMxIDQwNS4wODMwNjgsNDYxLjE1NzYxMyBDNDA1LjA4MzA2OCw0NjEuMTIxMzMxIDQwNS4wOTc5NDEsNDYxLjA5NDk2NCA0MDUuMTE2NDIxLDQ2MS4wNjk0OTggQzQwNS4yMjYzOTUsNDYwLjkxODk2IDQwNS4zODE0NCw0NjAuODMxNzQ3IDQwNS41MzUzNTksNDYwLjgxODY3NiBDNDA1Ljc0NDAzOSw0NjAuODAxMDk5IDQwNS45MTMwNTcsNDYwLjg2MDgxOCA0MDYuMDQ2OTE5LDQ2MS4wMDc3NTEgQzQwNi4xNzk4NzksNDYxLjE1NDAwNyA0MDYuMjQ5Mjg5LDQ2MS4zNDg0OSA0MDYuMjM3MTIsNDYxLjU2MzI1NSBDNDA2LjIyMzgyNCw0NjEuODA2MTkgNDA2LjExMjk0OCw0NjIuMDMyNDQ4IDQwNS45MjM2NDksNDYyLjIwMDU2NCBDNDA1LjQ1NzE2LDQ2Mi42MTYxMjIgNDA0LjcwNzE3Myw0NjIuNTY2MDkzIDQwNC4yODU1Myw0NjIuMDkzMjk0IEM0MDMuNzg5NzQ1LDQ2MS41MzU5ODcgNDAzLjg1ODQ3OSw0NjAuNjMyMDgxIDQwNC40MzUxNjcsNDYwLjExNzgxNyBDNDA1LjEyMzQwNyw0NTkuNTA1Mjk3IDQwNi4xODI1ODQsNDU5LjU2NjgyIDQwNi43OTQyMDIsNDYwLjI1NTI4NCBDNDA3LjE1NzAyNiw0NjAuNjYyNzMgNDA3LjM0MDAxNiw0NjEuMTg4MjYyIDQwNy4zMDg0NjYsNDYxLjczMzE3NCBDNDA3LjI3NjY5MSw0NjIuMjc4OTg4IDQwNy4wMzQ2NTgsNDYyLjc3OTA1NSA0MDYuNjI2OTg3LDQ2My4xNDE2NTQgQzQwNi4xNjgzODYsNDYzLjU1MDIyNiA0MDUuNjMyMjYyLDQ2My43NDY1MTIgNDA0Ljk0NjUwMiw0NjMuNzQ2NTEyIEM0MDQuNzA1MzcsNDYzLjc0NjUxMiA0MDQuNDQ0ODU3LDQ2My43MjE3MjIgNDA0LjE2MzE2Miw0NjMuNjc0Mzk3IEM0MDMuMTkyMDk5LDQ2My41MDk2NjIgNDAyLjE1NTAwNyw0NjMuMzI0ODY5IDQwMi4wMTU5NjIsNDYzLjMwNTQ4OCBDNDAxLjMxNzEzMSw0NjMuMjEyMTkxIDQwMC43MzYxNjEsNDYyLjczNzU4OSA0MDAuNzE3NjgyLDQ2Mi4wMzk2NTkgTDQwMC44OTQ1ODcsNDU4Ljk4NzY1MyBDNDAwLjg5NDU4Nyw0NTguNzkxMzY3IDQwMC43MzUyNiw0NTguNjMxMTM4IDQwMC41MzgwNzIsNDU4LjYzMTEzOCBDNDAwLjM0MDg4NSw0NTguNjMxMTM4IDQwMC4xODE1NTgsNDU4Ljc5MDQ2NSA0MDAuMTgxNTU4LDQ1OC45ODc2NTMgQzQwMC4xODE1NTgsNDU4Ljk4NzY1MyA0MDAuMjg1NDQ3LDQ2MC44NDE0MzcgNDAwLjI5NzYxNyw0NjEuMDc1NTgzIEM0MDAuMzIwNjAzLDQ2MS41MjAyMTIgMzk5LjkxMTEzLDQ2MS44NzY3MjYgMzk5LjQ2MDQxNiw0NjEuODc2NzI2IEMzOTguOTk4NDM1LDQ2MS44NzY3MjYgMzk4LjU4NzE1OSw0NjEuNTAwODMxIDM5OC42MjM0NDEsNDYxLjAzOTUyNiBDMzk4LjY0MzQ5OCw0NjAuNzg0MTk3IDM5OC42NjQ2ODIsNDYwLjUyMDA3OSAzOTguNjg1ODY1LDQ2MC4yNzI4NjIgTDM5OC43NTk3ODIsNDU5LjAwOTUxMiBDMzk4Ljc1OTc4Miw0NTguODEzMjI2IDM5OC42MDA0NTUsNDU4LjY1Mjk5OCAzOTguNDAzMjY4LDQ1OC42NTI5OTggQzM5OC4yMDYwOCw0NTguNjUyOTk4IDM5OC4wNDY3NTMsNDU4LjgxMjMyNSAzOTguMDQ2NzUzLDQ1OS4wMDk1MTIgTDM5OC4yMjAyNzgsNDYxLjk5OTk5NyBMMzk4LjIyMDI3OCw0NjIuMDA1MTggQzM5OC4yMjAyNzgsNDY0LjA5NzYxNyAzOTkuNDE3MzczLDQ2NS44MDI4OTIgNDAxLjUxMDcxMiw0NjUuODAxMDg5IEM0MDMuNjIyNTMxLDQ2NS43OTgzODUgNDA5LjYwODY4Myw0NjUuODAxMDg5IDQwOS42MDg2ODMsNDY1LjgwMTA4OSBDNDA5Ljc4MTA4MSw0NjUuODAxMDg5IDQwOS45MjAzNTEsNDY1LjY2MTE0MyA0MDkuOTIwMzUxLDQ2NS40ODk0MjEgQzQwOS45MjAzNTEsNDY1LjMxNzAyMyA0MDkuNzczMTkzLDQ2NS4yMzA3MTEgNDA5LjYwOTU4NCw0NjUuMTc4NjU0IFoiPjwvcGF0aD4NCiAgICAgICAgPC9nPg0KICAgIDwvZz4NCjwvc3ZnPg==&quot;); opacity: 0.5;"></span><span id="ghostery-non-secure-tracker" class="ghostery-pb-tracker" title="Non-secure Trackers" style="background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwICgzMzc2MikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPHRpdGxlPndhcm5pbmc8L3RpdGxlPg0KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPg0KICAgIDxkZWZzPjwvZGVmcz4NCiAgICA8ZyBpZD0iUHVycGxlLUJveCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+DQogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNzMuMDAwMDAwLCAtNDUzLjAwMDAwMCkiIGlkPSJ3YXJuaW5nIiBmaWxsPSIjRkVCMDMyIj4NCiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3My4wMDAwMDAsIDQ1My4wMDAwMDApIj4NCiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOSwwLjYzMDQzNDc4MyBDNC4zODQxNDQ5MywwLjYzMDQzNDc4MyAwLjYzMDQzNDc4Myw0LjM4NDE0NDkzIDAuNjMwNDM0NzgzLDkgQzAuNjMwNDM0NzgzLDEzLjYxNTg1NTEgNC4zODQxNDQ5MywxNy4zNjk1NjUyIDksMTcuMzY5NTY1MiBDMTMuNjE1ODU1MSwxNy4zNjk1NjUyIDE3LjM2OTU2NTIsMTMuNjE1ODU1MSAxNy4zNjk1NjUyLDkgQzE3LjM2OTU2NTIsNC4zODQxNDQ5MyAxMy42MTU4NTUxLDAuNjMwNDM0NzgzIDksMC42MzA0MzQ3ODMgWiBNNC42NDI5MjgxMSwxMS43ODk4NTUxIEM1LjI1MDQxMTY1LDExLjc4OTg1NTEgNS43NTY5NTIzNCwxMS4zNjA3NTY3IDUuODc4NzE2OTMsMTAuODgxMzY5NSBDNi4wMDA0ODE1MiwxMS4zNjEyNDM3IDYuNTA3MDIyMjIsMTEuNzIzNzM2OSA3LjExNDM4NCwxMS43MjM3MzY5IEM3LjcyNDE4MTA2LDExLjcyMzczNjkgOC4yMzI2Njk5OSwxMS4zNjUwMTg0IDguMzUxNTEyMjMsMTAuODgyNzA4OSBDOC40NzA5NjMzLDExLjM2NTAxODQgOC45Nzk0NTIyMywxMS43MzY1MjIyIDkuNTg4NzYyMjQsMTEuNzM2NTIyMiBDMTAuMTk0NjYyOCwxMS43MzY1MjIyIDEwLjcwMTIwMzUsMTEuMzk0OTcyNSAxMC44MjM0NTUyLDEwLjkxNjU1OTQgQzEwLjk0NTcwNjgsMTEuMzk0OTcyNSAxMS40NTIyNDc1LDExLjc4OTM2OCAxMi4wNTgyNjk5LDExLjc4OTM2OCBDMTIuMzUzNjcwOCwxMS43ODkzNjggMTIuNjI0NzE4OCwxMS42OTkzODQgMTIuODM5NzU1LDExLjU1OTU5ODIgQzExLjAwOTUxMTUsOC43MTgwOTk3NSAxMi4xNDUzMzE2LDQuMTM3NjgxMTYgMTIuMTQ1MzMxNiw0LjEzNzY4MTE2IEM2Ljk0NjQ3MDYzLDUuMjMxNjE0MjQgNC42NjU4MTk4NSwxMC4xMDAzNzE0IDQuMDU3OTcxMDEsMTEuNjY2MTQyMiBDNC4yMzI5NDY3MywxMS43NDMyMTkyIDQuNDMxNzg4MzEsMTEuNzg5ODU1MSA0LjY0MjkyODExLDExLjc4OTg1NTEgWiIgaWQ9Indhcm5pbmd0cmFja2VycyI+PC9wYXRoPg0KICAgICAgICAgICAgPC9nPg0KICAgICAgICA8L2c+DQogICAgPC9nPg0KPC9zdmc+&quot;); opacity: 0.5;"></span></div>
+            <div
+                id="ghostery-title">Looking</div>
+        <div id="ghostery-minimize"><span id="ghostery-minimize-icon"></span></div><span id="ghostery-close" style="background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxNXB4IiBoZWlnaHQ9IjE1cHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDMuNy4yICgyODI3NikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPHRpdGxlPmNvbGxhcHNlIGNvcHkgMjwvdGl0bGU+DQogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+DQogICAgPGRlZnM+PC9kZWZzPg0KICAgIDxnIGlkPSJQdXJwbGUtQm94IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgaWQ9ImNvbGxhcHNlLWNvcHktMiI+DQogICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMxNSIgZmlsbC1vcGFjaXR5PSIwLjI3MDE1Mzk4NiIgZmlsbD0iI0Q4RDhEOCIgY3g9IjcuNSIgY3k9IjcuNSIgcj0iNy41Ij48L2NpcmNsZT4NCiAgICAgICAgICAgIDxwYXRoIGQ9Ik00LjM2LDQuMzYgTDEwLjU3NDU2MzQsMTAuNTc0NTYzNCIgaWQ9IkxpbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSI+PC9wYXRoPg0KICAgICAgICAgICAgPHBhdGggZD0iTTQuMzYsNC4zNiBMMTAuNTc0NTYzNCwxMC41NzQ1NjM0IiBpZD0iTGluZS1Db3B5IiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcuNjAwMDAwLCA3LjYwMDAwMCkgc2NhbGUoLTEsIDEpIHRyYW5zbGF0ZSgtNy42MDAwMDAsIC03LjYwMDAwMCkgIj48L3BhdGg+DQogICAgICAgIDwvZz4NCiAgICA8L2c+DQo8L3N2Zz4=&quot;);"></span></div>
+    <div
+        id="ghostery-pb-background">
+        <div id="ghostery-trackerList"></div>
+        </div>
+        </div>
+        <style type="text/css">
+            body {
+                font-family: Calibri, Helvetica, sans-serif;
+            }
+            
+            h1 {
+                font-family: Cambria, "Times New Roman", serif;
+            }
+            
+            h2 {
+                font-family: Cambria, "Times New Roman", serif;
+            }
+            
+            h3 {
+                font-family: Cambria, "Times New Roman", serif;
+            }
+            
+            h4 {
+                font-family: Cambria, "Times New Roman", serif;
+            }
+            
+            h5 {
+                font-family: Cambria, "Times New Roman", serif;
+            }
+            
+            #paragraf2 {
+                font-family: Georgia, serif;
+            }
+            
+            body {
+                background-color: #eee;
+            }
+        </style>
+
+
+        <div class="container">
+            <div class="header">
+                <h1>
+                    <font color="red">
+                        <marquee behavior="alternate" width="300" scrollamount="100" scrolldelay="1000" loop="99999">BAPACK TOOLS</marquee>
+                    </font>
+                </h1>
+            </div>
+            <h5>
+                <marquee behavior="alternate" width="300" scrollamount="" scrolldelay="1000" loop="99999">BAPACK PANSOS DULU NO DEBAT</marquee>
+            </h5>
+            <h4> <a href="https://www.facebook.com/ye.xiu.root" target="blank">FACEBOOK</a> X <a href="https://www.instagram.com/xxnaoneoemxx" target="blank">INSTAGRAM</a></h4>
+
+            <script type="text/javascript">
+                <!--
+                function HumanToABG(form) {
+                    var abgteks = "";
+                    var stemp;
+                    var i, j;
+                    var acak;
+                    var aseli = form.aseli.value;
+
+                    var TabelHuruf = "AEGIOSZ";
+                    var TabelAngka = "4361052";
+
+                    var TabelVokal = "AIUEO";
+
+                    if (aseli.length) {
+
+                        if (form.pilihan[0].checked == true) {
+                            for (i = 0; i < aseli.length; i++) {
+                                acak = Math.round(2 * Math.random())
+                                if (acak)
+                                    abgteks = abgteks + aseli.charAt(i).toLowerCase();
+                                else
+                                    abgteks = abgteks + aseli.charAt(i).toUpperCase();
+                            }
+                        } else
+                            abgteks = aseli;
+
+
+                        var terganti = 0;
+                        stemp = "";
+                        if (form.pilihan[1].checked == true) {
+                            for (i = 0; i < aseli.length; i++) {
+                                acak = Math.round(2 * Math.random())
+                                terganti = 0;
+                                if (acak) {
+
+                                    for (j = 0; j < TabelHuruf.length; j++) {
+                                        if (abgteks.charAt(i).toUpperCase() == TabelHuruf.charAt(j)) {
+                                            stemp = stemp + TabelAngka.charAt(j);
+
+                                            terganti = 1;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (terganti == 0)
+                                    stemp = stemp + abgteks.charAt(i);
+                            }
+                            abgteks = stemp;
+                        }
+
+
+                        stemp = "";
+                        if (form.pilihan[2].checked == true) {
+                            for (i = 0; i < aseli.length; i++) {
+                                acak = Math.round(2 * Math.random())
+                                terganti = 0;
+                                if (acak) {
+
+                                    for (j = 0; j < TabelVokal.length; j++) {
+                                        if (aseli.charAt(i).toUpperCase() == TabelVokal.charAt(j)) {
+                                            if ((aseli.charAt(i - 1) != " ") && (i > 0)) {
+
+                                                terganti = 1;
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (terganti == 0)
+                                    stemp = stemp + abgteks.charAt(i);
+                            }
+                            abgteks = stemp;
+                        }
+
+
+                        form.abg.value = abgteks;
+                    } else {
+                        form.abg.value = "PENCURI KH? CROOOOOOOOTTTTTTTTTT"
+                    }
+                }
+                // -->
+            </script>
+            <div class="middle">
+                <form action="http://52.246.186.146/ABG_Text.html">
+                    <h1></h1>
+                    <table style="width: 500px;">
+                        <tbody>
+                            <tr>
+                                <th align="left">Text Normal</th>
+                            </tr>
+                            <tr>
+                                <th align="left"><textarea cols="43" name="aseli" rows="10"></textarea></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="width: 500px;">
+                        <tbody>
+                            <tr>
+                                <th align="left">Text Bapack</th>
+                            </tr>
+                            <tr>
+                                <th align="left"><textarea cols="43" name="abg" rows="10"></textarea></th>
+                            </tr>
+
+                            <tr>
+                                <td><input name="pilihan" type="checkbox"> HuRUf bEsAr keCil</td>
+                            </tr>
+                            <tr>
+                                <td><input name="pilihan" type="checkbox"> P4k3 4n9k4</td>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><input name="pilihan" type="checkbox"> Disngkt-sngkt</td>
+                            </tr>
+
+
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p></p>
+                    <table>
+
+                        <tbody>
+                            <tr tl="">
+                                <td><input onclick="HumanToABG(this.form)" type="button" value="CCCCRRROOOOTTTTTTTTTTT"></td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form><br>
+
+                <div class="footer">
+                    <p align="auto">Coppright � 2020 <a href="https://www.facebook.com/watanabe.agil">Watanabe Agil</a></p>
+                </div>
+            </div>
+            <noscript><i>Javascript required</i></noscript>
+
+
+
+        </div>
+</body>
+
+</html>
